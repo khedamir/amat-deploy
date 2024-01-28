@@ -1,0 +1,1220 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="fonts/font/stylesheet.css" />
+    <title>Результаты поиска</title>
+    <link
+      type="image/x-icon"
+      href="images/png/logo-white.png"
+      rel="shortcut icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+  <header class="main-header animated">
+    <div class="main-header__wrapper">
+      <nav class="main-nav">
+        <ul class="main-nav__items flex-child">
+          <li class="main-nav__item main-nav__item--collections">
+            <span> Коллекции </span>
+          </li>
+          <li class="main-nav__item" id="brand">
+            <a href="404.html"> О бренде </a>
+          </li>
+        </ul>
+        <div class="logo-container">
+          <a href="index.html">
+            <img
+              src="images/svg/logo-white.svg"
+              alt="logo"
+              class="logo-white"
+              id="logo"
+            />
+            <img
+              src="images/svg/logo-black.svg"
+              alt="logo"
+              class="logo-black"
+              id="logo-white"
+            />
+          </a>
+        </div>
+        <ul class="main-nav__items flex-child">
+          <li class="main-nav__item main-nav__item--icon icon-search">
+              <span class="icon icon--black">
+                <img
+                  class="black icon--default"
+                  src="images/svg/search-black.svg"
+                />
+              </span>
+            <span class="icon icon--white">
+                <img
+                  class="white icon--default"
+                  src="images/svg/search-white.svg"
+                />
+              </span>
+            <span class="icon icon--gold">
+                <img
+                  class="gold icon--default"
+                  src="images/svg/search-gold.svg"
+                />
+                <span class="icon-text">Поиск</span>
+              </span>
+          </li>
+          <li class="main-nav__item main-nav__item--icon icon-favor">
+              <span class="icon icon--black">
+                <img
+                  class="black icon--default"
+                  src="images/svg/favor-black.svg"
+                />
+              </span>
+            <span class="icon icon--white">
+                <img
+                  class="white icon--default"
+                  src="images/svg/favor-white.svg"
+                />
+              </span>
+            <span class="icon icon--gold">
+                <img
+                  class="gold icon--default"
+                  src="images/svg/favor-gold.svg"
+                />
+                <span class="icon-text">Избранное</span>
+              </span>
+          </li>
+          <li class="main-nav__item main-nav__item--icon icon-bag is--active">
+              <span class="icon icon--black">
+                <img
+                  class="black icon--default"
+                  src="images/svg/bag-black.svg"
+                />
+                <img
+                  class="black icon--active"
+                  src="images/svg/bag-black-active.svg"
+                />
+              </span>
+            <span class="icon icon--white">
+                <img
+                  class="white icon--default"
+                  src="images/svg/bag-white.svg"
+                />
+                <img
+                  class="white icon--active"
+                  src="images/svg/bag-white-active.svg"
+                />
+              </span>
+            <span class="icon icon--gold">
+                <img class="gold icon--default" src="images/svg/bag-gold.svg" />
+                <span class="icon-text">Корзина</span>
+              </span>
+            <span class="quantity">3</span>
+          </li>
+          <li class="main-nav__item main-nav__item--mobile">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="mobile-menu">
+        <nav class="mobile-nav">
+          <div class="search-container">
+            <form>
+              <img src="images/svg/search-in.svg" class="search-in" />
+              <input
+                type="text"
+                name="text"
+                class="search"
+                placeholder="Тип изделия, название..."
+              />
+            </form>
+          </div>
+          <ul class="mobile-nav__items">
+            <li class="mobile-nav__item mobile-nav__item--collection">
+                <span
+                >Коллекции
+                  <img src="images/svg/arrow-bottom-black.svg" alt=""
+                  /></span>
+              <div class="mobile-nav__item--submenu">
+                <ul class="collections-list">
+                  <li class="collections-list__item">
+                    <a href="">Тематические платки</a>
+                  </li>
+                  <li class="collections-list__item">
+                    <a href="">Базовые платки</a>
+                  </li>
+                  <li class="collections-list__item"><a href="">Шали</a></li>
+                  <li class="collections-list__item">
+                    <a href="">Градиенты</a>
+                  </li>
+                  <li class="collections-list__item">
+                    <a href="">Твилли</a>
+                  </li>
+                  <li class="collections-list__item"><a href="">Шарфы</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="/index.html">О нас</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="/index.html">Уход за изделиями</a>
+            </li>
+          </ul>
+          <ul class="mobile-nav__items--bottom">
+            <li class="mobile-nav__item">
+              <a href="/index.html">Избранное</a>
+              <img src="images/png/mobile-favor.png" />
+            </li>
+            <li class="mobile-nav__item">
+              <a href="/adress.html">Адрес</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="/help.html">Помощь</a>
+            </li>
+            <li class="mobile-nav__item">
+              <a href="/contacts.html">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="submenu">
+        <div class="submenu-wrapper">
+          <ul class="collections-list">
+            <li class="collections-list__item">
+              <a href="">
+                <img src="images/png/title1.png" alt="" />
+                <h3>Тематические платки</h3>
+              </a>
+            </li>
+            <li class="collections-list__item">
+              <a href="">
+                <img src="images/png/title2.png" alt="" />
+                <h3>базовые платки</h3>
+              </a>
+            </li>
+            <li class="collections-list__item">
+              <a href="">
+                <img src="images/png/title3.png" alt="" />
+                <h3>шали</h3>
+              </a>
+            </li>
+            <li class="collections-list__item">
+              <a href="">
+                <img src="images/png/title4.png" alt="" />
+                <h3>градиенты</h3>
+              </a>
+            </li>
+            <li class="collections-list__item">
+              <a href="">
+                <img src="images/png/title1.png" alt="" />
+                <h3>твилли</h3>
+              </a>
+            </li>
+            <li class="collections-list__item">
+              <a href="">
+                <img src="images/png/title2.png" alt="" />
+                <h3>шарфы</h3>
+              </a>
+            </li>
+          </ul>
+          <a href="category.html">
+            <button class="submenu-button button">
+              Посмотреть все коллекции
+              <span class="arrow">
+                  <img
+                    class="black"
+                    src="images/svg/arrow-right-black-button.svg"
+                    alt=""
+                  />
+                  <img
+                    class="gold"
+                    src="images/svg/arrow-right-gold-button.svg"
+                    alt=""
+                  />
+                </span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="search-results">
+    <div class="section-wrapper">
+      <div class="category__subheader">
+        <div class="category__links">
+          <a href="index.html">Главная</a> \
+          <a href="#"> Поиск </a>
+        </div>
+        <div class="category__product-quantity">54 товара</div>
+      </div>
+      <form class="modal-search__container">
+        <input type="search" class="modal-search__input" value="">
+        <input type="text" class="modal-search__reset" value="Очистить">
+        <div class="modal-search__button-wrap modal-bottom">
+          <div class="modal-search__button button button--white">Найти</div>
+        </div>
+      </form>
+
+      <div class="category-flex">
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+      </div>
+      <div class="category-flex">
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+      </div>
+      <div class="category-flex">
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+        <div class="category__product">
+          <div class="category__photo-container">
+            <div class="favorite-icon-wrap">
+              <img
+                src="images/svg/favor-gold-empty.svg"
+                alt="Добавить в избранное"
+              />
+              <img
+                src="images/svg/favor-gold.svg"
+                alt="Добавить в избранное"
+              />
+            </div>
+            <img
+              src="images/png/scarves.png"
+              class="category__photo"
+              alt="Фото Коллекции"
+            />
+            <div class="category-product__swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title1.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title2.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/png/title3.png"
+                    class="category__photo"
+                    alt="Фото Коллекции"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-prev">
+                <img
+                  src="images/svg/arrow-left-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-button-next">
+                <img
+                  src="images/svg/arrow-right-category-swiper.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/product.html">
+            <h5 class="category__product-title">Даймохк</h5>
+            <p class="category__product-price">16 000 ₽</p>
+          </a>
+        </div>
+      </div>
+
+
+
+    </div>
+  </main>
+
+    <footer class="footer">
+      <div class="footer-logo__container">
+        <img class="logo" src="images/svg/logo-white.svg" alt="AMAT" />
+
+        <div class="arrow-up" id="arrow-up">
+          <img src="images/svg/arrow-up.svg" />
+        </div>
+      </div>
+
+      <div class="footer-subscription footer-subscription--mobile">
+        <h3 class="footer-subscription__title footer-title">
+          Узнавайте первыми о новинках
+        </h3>
+
+        <form
+          class="footer-subscription__form"
+          method="post"
+          action="http://localhost/dashboard/send.php"
+        >
+          <input type="email" name="email" placeholder="Эл. почта" />
+          <button type="submit">
+            <img src="images/svg/arrow-right.svg" class="arrow-right" />
+          </button>
+        </form>
+        <p class="footer-subscription__text">
+          Нажимая на кнопку «Подписаться», вы соглашаетесь c
+          <a href="policy.html">Политикой конфиденциальности</a> и
+          <a href="oferta.html">офертой</a>.
+        </p>
+      </div>
+
+      <div class="footer-info">
+        <div class="footer-info__desktop">
+          <ul class="footer-info__items">
+            <li class="footer-info__item">
+              Уход за изделиями
+              <div class="button-plus">
+                <span></span>
+                <span></span>
+              </div>
+            </li>
+            <li class="footer-info__item">
+              Доставка и оплата
+              <div class="button-plus">
+                <span></span>
+                <span></span>
+              </div>
+            </li>
+            <li class="footer-info__item">
+              Возврат
+              <div class="button-plus">
+                <span></span>
+                <span></span>
+              </div>
+            </li>
+            <li class="footer-info__item">
+              Помощь
+              <div class="button-plus">
+                <span></span>
+                <span></span>
+              </div>
+            </li>
+            <li class="footer-info__item">
+              Адрес
+              <div class="button-plus">
+                <span></span>
+                <span></span>
+              </div>
+            </li>
+          </ul>
+          <ul class="footer-info__body--items">
+            <li class="footer-info__body--item">
+              <p>
+                Чтобы сохранить изделие в превосходном состоянии, храните
+                его в развязанном виде и избегайте соприкосновения с украшениями
+                и аксессуарами, которые могут оставить зацепки. Берегите изделие
+                от дождя, избегайте контакта с агрессивными веществами
+                и желательно осуществляйте уход за изделием в специализированных
+                химчистках.
+              </p>
+            </li>
+            <li class="footer-info__body--item"><p>Доставка и оплата</p></li>
+            <li class="footer-info__body--item"><p>Возврат</p></li>
+            <li class="footer-info__body--item"><p>Помощь</p></li>
+            <li class="footer-info__body--item"><p>Адрес</p></li>
+          </ul>
+        </div>
+
+        <div class="footer-info__mobile accordion accordion--white">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3 class="accordion-title">Уход за изделиями</h3>
+              <div class="accordion-button accordion-button--white">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="accordion-description">
+              <div class="accordion-description__body">
+                Чтобы сохранить изделие в превосходном состоянии, храните
+                его в развязанном виде и избегайте соприкосновения с украшениями
+                и аксессуарами, которые могут оставить зацепки. Берегите изделие
+                от дождя, избегайте контакта с агрессивными веществами
+                и желательно осуществляйте уход за изделием в специализированных
+                химчистках.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3 class="accordion-title">Доставка и оплата</h3>
+              <div class="accordion-button accordion-button--white">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="accordion-description">
+              <div class="accordion-description__body">Доставка и оплата</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3 class="accordion-title">Возврат</h3>
+              <div class="accordion-button accordion-button--white">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="accordion-description">
+              <div class="accordion-description__body">gdfgdfg</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3 class="accordion-title">Помощь</h3>
+              <div class="accordion-button accordion-button--white">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="accordion-description">
+              <div class="accordion-description__body">Помощь</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3 class="accordion-title">Адрес</h3>
+              <div class="accordion-button accordion-button--white">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="accordion-description">
+              <div class="accordion-description__body">Адрес</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-description">
+        <div class="footer-subscription">
+          <h3 class="footer-subscription__title footer-title">
+            Узнавайте первыми о новинках
+          </h3>
+
+          <form
+            class="footer-subscription__form"
+            method="post"
+            action="http://localhost/dashboard/send.php"
+          >
+            <input type="email" name="email" placeholder="Эл. почта" />
+            <button type="submit">
+              <img src="images/svg/arrow-right.svg" class="arrow-right" />
+            </button>
+          </form>
+          <p class="footer-subscription__text">
+            Нажимая на кнопку «Подписаться», вы соглашаетесь c
+            <a href="policy.html">Политикой конфиденциальности</a> и
+            <a href="oferta.html">офертой</a>.
+          </p>
+        </div>
+        <div class="footer-contacts">
+          <h3 class="footer-title">Контакты</h3>
+          <div class="footer-contacts__list">
+            <a target="_blank" href="https://+7%20(988)%20908-87-87/"
+              >WhatsApp</a
+            >
+            <a target="_blank" href="https://t.me/+k-noRbhXTWZlN2Ni"
+              >Telegram</a
+            >
+            <a target="_blank" href="https://vk.com/amat_scarves">VK</a>
+            <a
+              target="_blank"
+              href="mailto:amat.textile@gmail.com"
+              class="email"
+              >amat.textile@gmail.com
+            </a>
+          </div>
+          <a href="tel:79889088787" class="footer-contacts__phone">
+            +7 988 908-87-87</a
+          >
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="seryonse">
+          Сайт разработан с любовью в веб-студии
+          <a class="seryonse-link" href="https://seryonse.com/">SERYONSE</a>
+        </div>
+        <div class="copyright">
+          <p class="copyright__text">© АМАТ. Все права защищены</p>
+          <a href="policy.html">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/script.js"></script>
+    <script src="./js/product.js"></script>
+    <script src="./js/accordion.js"></script>
+  </body>
+</html>

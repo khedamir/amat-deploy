@@ -1,0 +1,171 @@
+﻿@import "veriables.scss";
+
+@import "components/my_accordion.scss";
+@import "components/footer.scss";
+@import "components/header.scss";
+
+@import "pages/home";
+@import "pages/product";
+@import "pages/category";
+@import "pages/modals";
+@import "pages/falls";
+@import "pages/thanks";
+@import "pages/cart";
+@import "pages/aboutus";
+@import "pages/search";
+
+* {
+  box-sizing: border-box;
+  font-family: $main-sans, sans-serif;
+}
+
+body {
+  background: $backWhite;
+  padding: 0;
+  margin: 0;
+  color: $textBlack10;
+  background: #fff;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.section-wrapper {
+  margin: auto;
+  text-align: center;
+  padding: 80px 80px;
+  max-width: 1440px;
+}
+
+.button {
+  padding: 12px 24px;
+  border-radius: 2px;
+  gap: 8px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 0;
+  //margin-top: 53px;
+  cursor: pointer;
+  border: none;
+  &:hover {
+    background: $graphicWhite50;
+  }
+  &:active {
+    background: $graphicWhite30;
+  }
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &--black {
+    color: $textWhite100;
+    background-color: $textBlack10;
+
+    &:hover {
+      background-color: $graphicBlack50;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section-wrapper {
+    padding: 80px 24px 0px 24px;
+  }
+}
+
+@media screen and (max-width: 528px) {
+  .section-wrapper {
+    padding: 120px 16px 0 16px;
+  }
+}
+
+.border-animation {
+  position: relative;
+  text-decoration: none;
+  color: $textBlack10;
+  overflow: hidden;
+  display: block;
+  width: fit-content;
+  padding-bottom: 3px;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 2px;
+    background: $textBlack10;
+  }
+
+  &:before {
+    left: 0;
+    transition: left 0.3s ease-out;
+  }
+
+  &:after {
+    left: -200%;
+    transition: left 0.6s ease-in;
+  }
+
+  &:hover:before {
+    left: 100%;
+  }
+
+  &:hover:after {
+    left: 0;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.sections-title {
+  font-size: 40px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: $textBlack10;
+}
+
+@media (max-width: 528px) {
+  .sections-title {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,740 @@
+//////////////* Главная *///////////////
+
+.home-page {
+  .home-video {
+    margin-bottom: 64px;
+    text-align: center;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    &__container {
+      background-image: url("../images/png/main.png");
+      background-position: center;
+      background-size: cover;
+      width: 88.8%;
+      height: 55%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 104px;
+    }
+
+    &__title {
+      font-size: 64px;
+      font-weight: 300;
+      text-align: center;
+      color: white;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    &__button {
+      padding: 12px 36px !important;
+    }
+
+    &.is--active {
+      .home-video__container {
+        height: 100%;
+        width: 100%;
+        transition: 1.5s;
+      }
+
+      .home-video__title {
+        transition: 1s;
+        color: $textWhite100;
+      }
+
+      .home-video__button {
+        transition: 1s;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .transform-text__animated {
+    opacity: 0;
+    transform: translateY(120%);
+    transition: all 0.8s ease;
+
+    &.is--active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .favorite-shawls {
+    .sections-title {
+      text-align: center;
+    }
+
+    &__list {
+      .swiper {
+        padding: 80px 0;
+
+        &-slide {
+          width: 354px;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            position: relative;
+            z-index: 1000;
+            transform: scale(1.1);
+          }
+        }
+
+        &-pagination {
+          display: none;
+        }
+      }
+
+      .favorite-shawls__item {
+        width: 100%;
+        img {
+          width: 100%;
+          height: 488px;
+          object-fit: cover;
+        }
+
+        .description {
+          margin-top: 16px;
+          text-align: center;
+          p {
+            font-size: 24px;
+          }
+
+          .border-animation {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .amat-history {
+    padding: 40px 0;
+
+    &__wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 0 80px;
+      gap: 64px;
+    }
+
+    &__photo {
+      width: calc(50% - 32px);
+      img {
+        width: 100%;
+        height: 791px;
+        object-fit: cover;
+
+        &.block__animated {
+          transform: scale(0.8);
+          transition: transform 0.8s ease;
+          &.is--active {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+    &__description {
+      width: calc(50% - 32px);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      margin-top: 174px;
+    }
+
+    .sections-title {
+      letter-spacing: -1.6px;
+      margin: 40px 0 24px 0;
+      color: $textaccent;
+      max-width: 500px;
+    }
+
+    &__info {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 130%;
+      padding: 0 24px;
+      max-width: 500px;
+    }
+
+    &__link {
+      margin-top: 64px;
+      text-transform: uppercase;
+      max-width: 500px;
+    }
+  }
+
+  .collections {
+    background-color: $textBlack10;
+    color: $graphicWhite100;
+    &-header {
+      .main-header {
+        position: static;
+        border-bottom: 1px solid $graphicWhite100;
+      }
+    }
+
+    &-wrapper {
+      padding: 40px 80px;
+    }
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 600px));
+      justify-content: center;
+      gap: 80px;
+      &__item {
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.8s ease;
+        &:hover {
+          transform: scale(0.8);
+        }
+        .collections-img {
+          width: 100%;
+          height: 826px;
+          object-fit: cover;
+
+          &.block__animated {
+            transform: scale(0.8);
+            transition: transform 0.8s ease;
+
+            &.is--active {
+              transform: scale(1);
+            }
+          }
+        }
+        .sections-title {
+          color: $backWhite;
+          position: absolute;
+          bottom: 64px;
+          width: 100%;
+          padding: 0 42px;
+          text-align: center;
+          font-size: 48px;
+          transition: all 1.8s ease;
+        }
+      }
+    }
+
+    .ticker {
+      position: relative;
+      overflow: hidden;
+      padding: 40px 0 80px;
+
+      &__wrapper {
+        display: flex;
+      }
+
+      &__item {
+        font-family: sans-serif;
+        font-size: 32px;
+        text-transform: uppercase;
+        font-weight: 400;
+        white-space: nowrap;
+        flex-shrink: 0;
+        animation: ticker 5s linear infinite;
+        display: flex;
+
+        span {
+          display: block;
+          padding: 0 48px;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            bottom: 0;
+            width: 12px;
+            height: 12px;
+            background: $graphicAccent;
+          }
+        }
+      }
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateZ(0);
+      }
+      to {
+        transform: translate3d(-100%, 0, 0);
+      }
+    }
+  }
+
+  .about-amat {
+    padding: 80px;
+
+    &__header {
+      display: none;
+    }
+
+    &__media {
+      img {
+        object-fit: cover;
+      }
+    }
+
+    &__description {
+      text-align: center;
+      margin-top: 40px;
+
+      .sections-title {
+        margin-bottom: 24px;
+      }
+
+      .about-amat__info {
+        margin: 0 auto;
+        font-size: 24px;
+      }
+
+      .about-amat__link {
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .amat-video {
+    .about-amat__media {
+      img {
+        width: 100%;
+        height: 775px;
+      }
+    }
+
+    .about-amat__description {
+      .about-amat__info {
+        max-width: 500px;
+      }
+    }
+  }
+
+  .amat-gifts {
+    .about-amat__media {
+      img {
+        max-width: 957px;
+        height: 577px;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .about-amat__description {
+      .about-amat__info {
+        max-width: 660px;
+      }
+
+      .about-amat__link {
+        margin: 64px auto 0;
+      }
+    }
+  }
+
+  .amat-contacts {
+    display: flex;
+    gap: 64px;
+    background-color: $grey;
+
+    .about-amat__media {
+      width: calc(50% - 32px);
+      img {
+        width: 100%;
+        height: 743px;
+        object-fit: cover;
+      }
+    }
+
+    .about-amat__description {
+      width: calc(50% - 32px);
+      text-align: left;
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+
+      .about-amat__info {
+        margin: 0;
+        font-size: 16px;
+        margin-bottom: 64px;
+        span {
+          font-style: normal;
+          font-weight: 600;
+          display: block;
+          margin-bottom: 8px;
+        }
+      }
+
+      .about-amat__link {
+        cursor: pointer;
+
+        &.map--active {
+          display: none;
+        }
+      }
+
+      .about-amat__map {
+        flex-grow: 1;
+        display: none;
+
+        &.is--active {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1220px) {
+    .amat-history {
+      &__wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+      }
+
+      &__photo {
+        width: 100%;
+        max-width: none;
+        img {
+          height: 364px;
+        }
+      }
+
+      &__description {
+        margin: 0 80px 80px;
+      }
+    }
+
+    .collections {
+      &-wrapper {
+        padding: 24px;
+      }
+      &-list {
+        grid-template-columns: repeat(2, minmax(0, 350px));
+        gap: 20px;
+        &__item {
+          .collections-img {
+            height: 520px;
+          }
+
+          .sections-title {
+            font-size: 40px;
+            padding: 0 12px;
+          }
+        }
+      }
+
+      .ticker {
+        padding: 16px 0 40px;
+        &__item {
+          font-size: 24px;
+
+          span {
+            &::after {
+              width: 8px;
+              height: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    .about-amat {
+      padding: 80px 24px;
+
+      &__description {
+        .about-amat__link {
+          margin-top: 24px;
+        }
+      }
+    }
+
+    .amat-video,
+    .amat-gifts {
+      .about-amat__media {
+        img {
+          max-width: none;
+          height: 492px;
+        }
+      }
+
+      .about-amat__description {
+        .about-amat__link {
+          margin: 24px auto 0;
+        }
+      }
+    }
+
+    .amat-contacts {
+      flex-direction: column;
+      gap: 36px;
+      background: transparent;
+
+      .sections-title {
+        padding: 0;
+      }
+
+      .about-amat__media {
+        width: 100%;
+
+        img {
+          height: 492px;
+        }
+      }
+
+      .about-amat__description {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+
+        .about-amat__map {
+          width: 100%;
+          height: 492px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .home-video {
+      &__title {
+        font-size: 40px;
+      }
+
+      &__button {
+        padding: 12px 24px !important;
+      }
+    }
+
+    .favorite-shawls {
+      margin: 0 24px;
+      &__list {
+        .swiper {
+          padding: 64px 0;
+
+          &-slide {
+            width: 418px;
+
+            &:hover {
+              transform: none;
+            }
+
+            &-next,
+            &-prev {
+              .description {
+                transition: opacity 0.3s ease;
+                opacity: 0;
+              }
+            }
+          }
+
+          &-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            &-bullet {
+              width: 4px;
+              height: 4px;
+              background: $graphicBlack;
+
+              &-active {
+                width: 6px;
+                height: 6px;
+                background: $graphicAccent;
+              }
+            }
+          }
+        }
+
+        .favorite-shawls__item {
+          img {
+            width: 100%;
+            height: 598px;
+          }
+
+          .description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+
+            p {
+              font-size: 24px;
+            }
+
+            .border-animation {
+              display: block;
+              font-size: 16px;
+              font-weight: 500;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+
+    .amat-history {
+      &__photo {
+        img {
+          height: 364px;
+        }
+      }
+
+      &__description {
+        margin: 0 0 80px;
+        width: 100%;
+      }
+
+      &__info {
+        text-align: left;
+      }
+    }
+
+    .collections {
+      &-list {
+        grid-template-columns: repeat(auto-fit, minmax(0, 295px));
+
+        &__item {
+          .collections-img {
+            height: 426px;
+          }
+
+          .sections-title {
+            font-size: 24px;
+          }
+        }
+      }
+      .ticker {
+        &__item {
+          font-size: 18px;
+
+          span {
+            &::after {
+              width: 6px;
+              height: 6px;
+            }
+          }
+        }
+      }
+    }
+
+    .about-amat {
+      padding: 60px 0;
+      position: relative;
+
+      &__header {
+        padding: 30px 16px;
+        display: block;
+      }
+
+      &__description {
+        text-align: left;
+        margin-top: 24px;
+
+        .sections-title {
+          display: none;
+        }
+
+        .about-amat__info {
+          margin: 0;
+          padding: 0 16px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .amat-video,
+    .amat-gifts {
+      .about-amat__media {
+        img {
+          height: 315px;
+        }
+      }
+
+      .about-amat__description {
+        .about-amat__link {
+          margin: 24px 16px 0;
+        }
+      }
+    }
+
+    .amat-contacts {
+      .about-amat__header {
+        padding-top: 0;
+      }
+
+      .about-amat__description {
+        align-items: flex-start;
+        text-align: left;
+
+        .about-amat__link {
+          margin: 0 16px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 528px) {
+    .home-video {
+      height: 95vh;
+      &__container {
+        width: 100%;
+        height: 70%;
+        padding-bottom: 84px;
+      }
+
+      &.is--active {
+        .home-video__container {
+          height: 70%;
+          transform: translateY(-30vh);
+          transition: all 1.5s ease;
+        }
+
+        .home-video__title {
+          transform: translateY(30vh);
+          color: $textBlack10;
+        }
+        .home-video__button {
+          transform: translateY(30vh);
+          background-color: $textBlack10;
+          color: $backWhite;
+        }
+      }
+    }
+
+    .sections-title {
+      font-size: 20px;
+    }
+
+    .favorite-shawls {
+      margin: 0;
+      &__list {
+        .swiper {
+          &-slide {
+            width: 295px;
+          }
+        }
+
+        .favorite-shawls__item {
+          img {
+            height: 422px;
+          }
+        }
+      }
+    }
+  }
+}

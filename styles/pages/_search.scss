@@ -1,0 +1,46 @@
+﻿.search-results {
+  .modal-search {
+    &__container {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 16px;
+      position: relative;
+    }
+
+    &__input {
+      padding: 8px 0;
+      border: none;
+      border-bottom: 1px solid $graphicBlack;
+      width: 100%;
+      outline: none;
+    }
+
+    &__reset {
+      position: absolute;
+      top: 8px;
+      right: 0;
+      color: $textBlack60;
+      border: none;
+      outline: none;
+      width: 70px;
+      text-align: right;
+      padding: 0;
+    }
+
+    &__button {
+      width: 160px;
+      display: none;
+
+      &.is--active {
+        display: block;
+      }
+
+      &-wrap {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        padding: 40px 0 0 0;
+      }
+    }
+  }
+}

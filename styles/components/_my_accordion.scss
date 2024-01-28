@@ -1,0 +1,91 @@
+.accordion {
+  color: $textBlack10;
+
+  h3 {
+    opacity: 1;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &-item {
+    border-top: 1px solid $graphicBlack10;
+
+    &:last-child {
+      border-bottom: 1px solid $graphicBlack10;
+    }
+
+    &.is--active {
+      .accordion-button {
+        span:last-child {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &.accordion--white {
+    color: $backWhite;
+
+    .accordion-item {
+      border-top: 1px solid $graphicWhite50;
+
+      &:last-child {
+        border-bottom: 1px solid $graphicWhite50;
+      }
+    }
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px 16px;
+  }
+
+  &-button {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--white {
+      span {
+        background-color: $backWhite;
+      }
+    }
+    &--gray {
+      span {
+        background-color: #858585;
+      }
+    }
+    span {
+      display: block;
+      &:first-child {
+        width: 10px;
+        height: 1px;
+        position: absolute;
+        top: calc(50% - 0.5px);
+      }
+
+      &:last-child {
+        width: 1px;
+        height: 10px;
+        transition: opacity 0.3s ease;
+      }
+    }
+  }
+
+  &-description {
+    height: 0;
+    overflow-y: hidden;
+    transition: height 0.3s ease;
+
+    &__body {
+      padding: 0 16px 20px 16px;
+    }
+  }
+}

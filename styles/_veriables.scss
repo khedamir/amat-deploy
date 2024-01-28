@@ -1,0 +1,62 @@
+﻿/*** colors ***/
+
+$accentred: #cc4958;
+$graphicBlack: #0c0c0c;
+$graphicBlack50: rgba(12, 12, 12, 0.5);
+$graphicaccent30: rgba(204, 73, 88, 0.3);
+$graphicgold: rgba(222, 179, 139, 1);
+$graphicBlack30: rgba(12, 12, 12, 0.3);
+$graphicBlack10: rgba(12, 12, 12, 0.1);
+$graphicblue: rgba(57, 88, 198, 1);
+$error: #dd5060;
+$graphicblue30: rgba(34, 64, 170, 0.3);
+$success: rgba(32, 157, 11, 1);
+$success30: rgba(32, 157, 11, 0.3);
+$textBlack10: rgba(15, 14, 14, 1);
+$textBlack60: rgba(15, 14, 14, 0.6);
+$textaccent: #cc4958;
+$textgold: rgba(206, 155, 87, 1);
+$backWhite: rgba(255, 255, 255, 1);
+$backGrey: #F7F7F7;
+$graphicWhite100: rgba(255, 255, 255, 1);
+$graphicWhite65: rgba(255, 255, 255, 0.65);
+$graphicWhite50: rgba(255, 255, 255, 0.5);
+$graphicWhite30: rgba(255, 255, 255, 0.3);
+$graphicAccent: #f0485b;
+$textWhite100: rgba(255, 255, 255, 1);
+$textWhite50: rgba(255, 255, 255, 0.5);
+$blackGray: rgba(247, 247, 247, 1);
+$grey: #f7f7f7;
+
+/*** fonts ***/
+
+@font-face {
+  font-family: "Tilda Sans";
+  src: url("fonts/font/TildaSans-Light.eot");
+  src: local("Tilda Sans Light"), local("TildaSans-Light"),
+    url("fonts/font/TildaSans-Medium.eot") format("embedded-opentype"),
+    url("fonts/font/TildaSans-Light.woff2") format("woff2"),
+    url("fonts/font/TildaSans-Light.woff") format("woff"),
+    url("fonts/font/TildaSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+$main-sans: "Tilda Sans";
+
+/*** mixins ***/
+
+@mixin list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  a {
+    color: inherit;
+    @include links;
+  }
+}
+
+@mixin links {
+  text-decoration: none;
+}
