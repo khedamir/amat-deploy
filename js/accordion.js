@@ -10,14 +10,18 @@ const filterAccordionItems = document.querySelectorAll(
   ".modal-filter__accordion .accordion-item"
 );
 
+const sdekPointsItems = document.querySelectorAll(".points-list__item");
+
 filterAccordionItems.forEach((item) => accordionAnimate(item, [], false));
 
-productAccordionItems.forEach((item) =>
-  accordionAnimate(item, [])
-);
+productAccordionItems.forEach((item) => accordionAnimate(item, []));
 
 footerInfoAccordionItems.forEach((item) =>
   accordionAnimate(item, footerInfoAccordionItems, false)
+);
+
+sdekPointsItems.forEach((item) =>
+  accordionAnimate(item, sdekPointsItems, false)
 );
 
 function accordionAnimate(item, items, scroll = true) {

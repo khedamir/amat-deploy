@@ -106,6 +106,10 @@
         max-width: 100%;
       }
     }
+
+    &-title {
+      text-align: left;
+    }
     &-price {
       color: $textBlack60;
       margin: 0;

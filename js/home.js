@@ -72,10 +72,13 @@ function favoritesSwiperMode() {
 
 window.addEventListener("resize", () => {
   favoritesSwiperMode();
+  mainPageVideoBlockActive();
+  AmatVideSwiperMode();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   favoritesSwiperMode();
+  AmatVideSwiperMode();
   setTimeout(() => {
     MainPageHeaderAnimationOn();
   }, 600);
@@ -83,14 +86,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function MainPageHeaderAnimationOn() {
   mainVideoBlock.classList.add("is--active");
+  mainPageVideoBlockActive();
   mainHeader.classList.add("is--active");
+}
+
+function mainPageVideoBlockActive() {
+  let screenWidth = window.innerWidth;
+  const video = mainVideoBlock.querySelector(".video");
+  const description = mainVideoBlock.querySelector(".home-video__description");
+  if (screenWidth < 769) {
+    const height = description.offsetHeight;
+
+    video.style.marginBottom = height + "px";
+    video.style.height = `calc(100vh - ${height}px)`;
+  } else {
+    video.style.marginBottom = 0;
+    video.style.height = "100%";
+  }
 }
 
 window.addEventListener("scroll", () => {
   const windowHeight = window.innerHeight;
   animatedMainPageSections.forEach((block) => {
     const blockPosition = block.getBoundingClientRect().top;
-    if (blockPosition <= 0.4 * windowHeight) {
+    if (blockPosition <= 0.6 * windowHeight) {
       const transfromAnimatedItems = block.querySelectorAll(
         ".transform-text__animated"
       );
@@ -105,3 +124,19 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+let amatVideoSwiper;
+function AmatVideSwiperMode() {
+  let screenWidth = window.innerWidth;
+  const options = {
+    slidesPerView: "auto",
+    spaceBetween: screenWidth < 1220 ? 16 : 40,
+    direction: screenWidth < 1220 ? "horizontal" : "vertical",
+  };
+
+  if (amatVideoSwiper && amatVideoSwiper.destroy) {
+    amatVideoSwiper.destroy();
+  }
+
+  amatVideoSwiper = new Swiper(".amat-video .swiper", options);
+}

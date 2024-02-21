@@ -99,8 +99,6 @@ const modalCart = document.querySelector("#modal-cart");
 const modalCartClose = modalCart.querySelector(".modal-header__button");
 const cartButton = document.querySelector(".main-nav__item--icon.icon-bag");
 
-const backdrop = document.querySelector(".backdrop");
-
 searchButton.addEventListener("click", () => {
   modalSearch.classList.add("is--active");
   backdrop.classList.add("is--active");

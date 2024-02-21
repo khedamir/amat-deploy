@@ -3,16 +3,18 @@
 @import "components/my_accordion.scss";
 @import "components/footer.scss";
 @import "components/header.scss";
+@import "components/cart";
+@import "components/modals";
 
 @import "pages/home";
+@import "pages/search";
 @import "pages/product";
 @import "pages/category";
-@import "pages/modals";
 @import "pages/falls";
 @import "pages/thanks";
-@import "pages/cart";
 @import "pages/aboutus";
-@import "pages/search";
+@import "pages/checkout";
+@import "pages/exhibition";
 
 * {
   box-sizing: border-box;
@@ -48,7 +50,7 @@ h5 {
   font-weight: 500;
   line-height: 21px;
   letter-spacing: 0;
-  text-align: left;
+  //text-align: left;
   text-transform: uppercase;
 }
 

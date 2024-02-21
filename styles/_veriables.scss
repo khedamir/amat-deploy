@@ -28,6 +28,10 @@ $textWhite50: rgba(255, 255, 255, 0.5);
 $blackGray: rgba(247, 247, 247, 1);
 $grey: #f7f7f7;
 
+$scarveblue: rgba(19, 83, 208, 1);
+$scarvebegie: rgba(249, 196, 129, 1);
+
+
 /*** fonts ***/
 
 @font-face {
@@ -41,6 +45,11 @@ $grey: #f7f7f7;
   font-weight: 300;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: Kalnia;
+  src: url('../fonts/Kalnia-Regular.ttf');
 }
 
 $main-sans: "Tilda Sans";

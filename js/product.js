@@ -19,7 +19,6 @@ const recommendationsSlider = new Swiper(".recommendations .swiper", {
     },
   },
 });
-
 const productPhotoList = document.querySelector(".product-photos__list");
 const pagination = document.getElementById("pagination");
 const checkoutButton = document.querySelector(".product-checkout__button");
@@ -121,9 +120,197 @@ function productPhotosSlider() {
 
 productPhotosSlider();
 
+// add to cart animation
 checkoutButton.addEventListener("click", () => {
   checkoutAddedMessage.classList.add("is--active");
   setTimeout(() => {
     checkoutAddedMessage.classList.remove("is--active");
   }, 2500);
 });
+
+// slider photo preview
+
+const productPhotoPreview = document.querySelector(".photos-preview");
+const previewPhotoList = document.querySelectorAll(
+  ".photos-list .photos-list__item"
+);
+const previewPhotoCloseButton =
+  productPhotoPreview.querySelector(".close-button");
+const previewPhotoWrapper = productPhotoPreview.querySelector(
+  ".preview-photo__wrapper"
+);
+
+// open photo preview
+productPhotoList.addEventListener("click", () => {
+  productPhotoPreview.classList.add("is--active");
+  document.body.classList.add("overflow-hidden");
+});
+
+// close photo preview
+productPhotoPreview
+  .querySelector(".close-button")
+  .addEventListener("click", () => {
+    productPhotoPreview.classList.remove("is--active");
+    document.body.classList.remove("overflow-hidden");
+  });
+
+// slider list
+
+let currentIndex = 0;
+
+previewPhotoList.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    showImage(index);
+    currentIndex = index;
+  });
+});
+
+document
+  .querySelector(".navigation-buttons .prev-button")
+  .addEventListener("click", () => {
+    currentIndex =
+      (currentIndex - 1 + previewPhotoList.length) % previewPhotoList.length;
+    showImage(currentIndex);
+  });
+
+document
+  .querySelector(".navigation-buttons .next-button")
+  .addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % previewPhotoList.length;
+    showImage(currentIndex);
+  });
+
+// показать изображение
+function showImage(index) {
+  previewPhotoList.forEach((item, i) => {
+    item.classList.remove("is--active");
+    if (i === index) {
+      item.classList.add("is--active");
+      const img = item.querySelector("img");
+
+      previewPhotoWrapper.querySelector("img").src = img.src;
+    }
+  });
+}
+
+// photo zoom
+const previewImage = previewPhotoWrapper.querySelector("img");
+
+// let isZoomed = false;
+
+previewPhotoWrapper.addEventListener("click", () => {
+  previewPhotoWrapper.classList.toggle("zoomed");
+});
+
+
+// My crazy code for modals
+// Три переменные, по клику на которые будут открываться три окошка - выбор цвета, ткани и размера
+const chooseColor = document.querySelector('.property-item-color');
+const chooseSize = document.querySelector('#property-item-size');
+const chooseFabric = document.querySelector('#property-item-fabric');
+
+const backdropModal = document.querySelector('.backdrop');
+
+// Переменные-модалки
+const modalColor = document.querySelector('#modal-color');
+const modalSize = document.querySelector('#modal-size');
+const modalFabric = document.querySelector('#modal-material');
+
+// Переменные для кнопок закрытия модалок
+const modalColorClose = modalColor.querySelector('.modal-header__button');
+const modalSizeClose = modalSize.querySelector('.modal-header__button');
+const modalFabricClose = modalFabric.querySelector('.modal-header__button');
+
+// Три события для открытия модальных окон
+chooseColor.addEventListener("click", () => {
+  modalColor.classList.add("is--active");
+  backdropModal.classList.add("is--active");
+  document.body.classList.add("overflow-hidden");
+});
+
+chooseSize.addEventListener("click", () => {
+  modalSize.classList.add("is--active");
+  backdropModal.classList.add("is--active");
+  document.body.classList.add("overflow-hidden");
+});
+
+chooseFabric.addEventListener("click", () => {
+  modalFabric.classList.add("is--active");
+  backdropModal.classList.add("is--active");
+  document.body.classList.add("overflow-hidden");
+});
+
+// Функции и события для закрытия модальных окон
+
+const modalColorCloseFun = () =>{
+  modalColor.classList.remove("is--active");
+  backdropModal.classList.remove("is--active");
+  document.body.classList.remove("overflow-hidden");
+}
+modalColorClose.addEventListener("click", modalColorCloseFun);
+
+const modalSizeCloseFun = () => {
+  modalSize.classList.remove("is--active");
+  backdropModal.classList.remove("is--active");
+  document.body.classList.remove("overflow-hidden");
+}
+modalSizeClose.addEventListener("click", modalSizeCloseFun );
+
+const modalFabricCloseFun = () => {
+  modalFabric.classList.remove("is--active");
+  backdropModal.classList.remove("is--active");
+  document.body.classList.remove("overflow-hidden");
+}
+modalFabricClose.addEventListener("click", modalFabricCloseFun);
+
+// Выбираем цвет и окно закрывается
+const modalColorItems = modalColor.querySelectorAll('.modal-color__product-container');
+
+for (let item of modalColorItems){
+  item.addEventListener('click', () =>{
+    for (let item2 of modalColorItems){
+      item2.classList.remove('is--active');
+    }
+    item.classList.add('is--active');
+    modalColorCloseFun();
+  })
+}
+
+// Выбираем размер и модальное окно закрывается
+const modalSizeItems = modalSize.querySelectorAll('.modal__item');
+
+for (let item of modalSizeItems){
+  item.addEventListener('click', () =>{
+    for (let item2 of modalSizeItems){
+      item2.classList.remove('is--active');
+    }
+    item.classList.add('is--active');
+    modalSizeCloseFun();
+  })
+}
+
+// Выбираем материал и окно закрывается
+const modalFabricItems = modalFabric.querySelectorAll('.modal__item');
+
+for (let item of modalFabricItems){
+  item.addEventListener('click', () =>{
+    for (let item2 of modalFabricItems){
+      item2.classList.remove('is--active');
+    }
+    item.classList.add('is--active');
+    modalFabricCloseFun();
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
