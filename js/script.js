@@ -1,4 +1,5 @@
 const mainHeader = document.querySelector(".main-header");
+const backdrop = document.querySelector(".backdrop");
 
 // content loaded
 document.addEventListener("DOMContentLoaded", () => {
@@ -44,7 +45,7 @@ headerCollectionsItem.addEventListener("click", () => {
 menuButton.addEventListener("click", () => {
   mainHeader.classList.toggle("menu-active");
   hamburger.classList.toggle("is--active");
-  document.body.classList.toggle("scroll-disabled");
+  document.body.classList.toggle("overflow-hidden");
 });
 
 menuMobileToggleItem.addEventListener("click", () => {
@@ -79,6 +80,7 @@ footerDesktopItems.forEach((item, index) => {
 });
 
 // modals
+
 // search
 const modalSearch = document.querySelector("#modal-search");
 const modalSearchClose = modalSearch.querySelector(".modal-header__button");
@@ -99,30 +101,105 @@ const modalCart = document.querySelector("#modal-cart");
 const modalCartClose = modalCart.querySelector(".modal-header__button");
 const cartButton = document.querySelector(".main-nav__item--icon.icon-bag");
 
-searchButton.addEventListener("click", () => {
-  modalSearch.classList.add("is--active");
-  backdrop.classList.add("is--active");
-  document.body.classList.add("overflow-hidden");
-});
-
-favoritesButton.addEventListener("click", () => {
-  modalFavorites.classList.add("is--active");
-  backdrop.classList.add("is--active");
-  document.body.classList.add("overflow-hidden");
-});
-
-cartButton.addEventListener("click", () => {
-  modalCart.classList.add("is--active");
-  backdrop.classList.add("is--active");
-  document.body.classList.add("overflow-hidden");
-});
+searchButton.addEventListener("click", () => OpenModal(modalSearch));
+favoritesButton.addEventListener("click", () => OpenModal(modalFavorites));
+cartButton.addEventListener("click", () => OpenModal(modalCart));
 
 modalSearchClose.addEventListener("click", () => CloseModal(modalSearch));
 modalFavoritesClose.addEventListener("click", () => CloseModal(modalFavorites));
 modalCartClose.addEventListener("click", () => CloseModal(modalCart));
+backdrop.addEventListener("click", () => {
+  CloseModal(modalSearch);
+  CloseModal(modalFavorites);
+  CloseModal(modalCart);
+});
 
 function CloseModal(item) {
   item.classList.remove("is--active");
   backdrop.classList.remove("is--active");
   document.body.classList.remove("overflow-hidden");
 }
+
+function OpenModal(item) {
+  item.classList.add("is--active");
+  backdrop.classList.add("is--active");
+  document.body.classList.add("overflow-hidden");
+}
+
+// Счетчик на товары в корзине
+const counters = document.querySelectorAll("[data-counter]");
+
+if (counters) {
+  counters.forEach((counter) => {
+    counter.addEventListener("click", (e) => {
+      const target = e.target;
+
+      if (target.closest(".counter__button")) {
+        let value = parseInt(
+          target.closest(".counter").querySelector("input").value
+        );
+
+        if (target.classList.contains("counter__button--plus")) {
+          value++;
+        } else {
+          --value;
+        }
+
+        if (value <= 1) {
+          value = 1;
+        }
+        target.closest(".counter").querySelector("input").value = value;
+      }
+    });
+  });
+}
+
+// удаляем из корзины товар
+
+// Получаем все элементы с классом "cart__product-delete"
+let deleteButtons = document.querySelectorAll(".cart__product-delete");
+
+// Добавляем обработчик клика к каждой кнопке удаления
+deleteButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    // Получаем родительский элемент (в данном случае, блок .cart__item)
+    let cartItem = this.closest(".cart__item");
+
+    // Проверяем, что родительский элемент найден, прежде чем удалять
+    if (cartItem) {
+      // Удаляем родительский элемент
+      cartItem.remove();
+    }
+  });
+});
+
+
+// Модалки уход за изделиями, доставка и оплата, возврат, faq
+
+
+const modalProductCareBtn = document.querySelector('#product-care-btn');
+const modalProductCare = document.querySelector('#modal-product-care');
+const modalProductCareCloseBtn = modalProductCare.querySelector('.modal-header__button');
+const modalFaq = document.querySelector('#modal-faq');
+
+const openFavoriteBtn = document.querySelector('#open-favorite-btn');
+const openFaqBtn = document.querySelector('#faq');
+const closeFaqBtn = modalFaq.querySelector('.modal-header__button');
+const modalContacts = document.querySelector('.modal-contacts');
+const openContactsBtn = document.querySelector('#open-contacts-btn');
+const closeContactsBtn = modalContacts.querySelector('.modal-header__button');
+const openAddressBtn = document.querySelector('#open-address');
+const modalAddress = document.querySelector('#modal-address');
+const closeModalAddress = modalAddress.querySelector('.modal-header__button');
+
+
+
+modalProductCareBtn.addEventListener('click', () => OpenModal(modalProductCare));
+modalProductCareCloseBtn.addEventListener('click', () => CloseModal(modalProductCare));
+openFavoriteBtn.addEventListener('click', () => OpenModal(modalFavorites));
+openFaqBtn.addEventListener('click', () => OpenModal(modalFaq));
+closeFaqBtn.addEventListener('click', () => CloseModal(modalFaq));
+openContactsBtn.addEventListener('click', () => OpenModal(modalContacts));
+closeContactsBtn.addEventListener('click', () => CloseModal(modalContacts));
+openAddressBtn.addEventListener('click', () => OpenModal(modalAddress));
+closeModalAddress.addEventListener('click', () => CloseModal(modalAddress));

@@ -506,6 +506,54 @@
     color: $textBlack10;
   }
 
+  &.white--v {
+    color: $backWhite;
+
+    .main-nav {
+      .logo-container {
+        .logo-white {
+          opacity: 1 !important;
+        }
+
+        .logo-black {
+          opacity: 0 !important;
+        }
+      }
+
+      &__item {
+        &--icon {
+          .icon {
+            &--white {
+              opacity: 1 !important;
+            }
+
+            &--black {
+              opacity: 0 !important;
+            }
+          }
+
+          &:hover {
+            .icon {
+              &--white {
+                opacity: 0 !important;
+              }
+
+              &--black {
+                opacity: 0 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .hamburger {
+      span {
+        background-color: $backWhite !important;
+      }
+    }
+  }
+
   // здесь
   &.white-bg--v {
     background-color: $backWhite !important;
@@ -840,6 +888,12 @@
       }
       .mobile-menu {
         height: calc(100vh - 67px);
+      }
+
+      .hamburger {
+        span {
+          background-color: $textBlack10 !important;
+        }
       }
     }
   }

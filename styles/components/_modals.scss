@@ -708,7 +708,50 @@
   }
 }
 
-.backdrop {
+.modal.modal-return,
+.modal.modal-ship-and-pay,
+.modal.modal-product-care {
+  .modal {
+    &-content {
+      &__wrapper {
+        padding: 40px 24px;
+      }
+    }
+  }
+}
+.modal.modal-faq {
+  .modal {
+    &-content {
+      &__wrapper {
+        padding: 0 24px;
+      }
+    }
+    &__question {
+      margin: 40px 0 12px;
+      font-weight: bold;
+    }
+  }
+}
+.modal.modal-contacts {
+  .modal-contacts-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 70px auto;
+  }
+  .messengers {
+    display: flex;
+    gap: 12px;
+    text-decoration: underline;
+    text-transform: uppercase;
+
+  }
+}
+
+  .backdrop {
   position: fixed;
   width: 100%;
   height: 100%;

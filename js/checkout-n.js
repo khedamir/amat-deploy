@@ -32,7 +32,6 @@ const paymentItems = document.querySelectorAll(".payment-item");
 
 // SHUTDOWN
 const thanksModal = document.querySelector(".thanks-modal");
-const backdrop = document.querySelector(".backdrop");
 
 const formData = {
   userInfo: {
@@ -250,7 +249,8 @@ function checkPaymentValidation() {
 // validate value functions
 function checkText(text) {
   console.log(formData, text);
-  const textRegular = /^[А-Яа-я\s-]{2,}$/;
+  //const textRegular = /^[А-Яа-я\s-]{2,}$/;
+  const textRegular = /^([А-Яа-я\s-]+|[A-Za-z\s-]+)$/;
 
   if (text.length === 0) {
     return {
@@ -269,7 +269,7 @@ function checkText(text) {
   if (!textRegular.test(text.trim())) {
     return {
       isValid: false,
-      message: 'Поле может содержать только кириллицу и символ "-"',
+      message: 'Поле может содержать только буквы и символ "-"',
     };
   }
 
@@ -442,18 +442,17 @@ thanksModal
 //Открываем и закрываем модальное окно с картой
 const openMapBtn = document.querySelector("#open-map-btn");
 const mapModal = document.querySelector("#modal-checkout-map");
-const backdropModal = document.querySelector(".backdrop");
 const mapModalCloseBtn = mapModal.querySelector(".modal-header__button");
 
 openMapBtn.addEventListener("click", () => {
   mapModal.classList.add("is--active");
-  backdropModal.classList.add("is--active");
+  backdrop.classList.add("is--active");
   document.body.classList.add("overflow-hidden");
 });
 
 const modalMapCloseFun = () => {
   mapModal.classList.remove("is--active");
-  backdropModal.classList.remove("is--active");
+  backdrop.classList.remove("is--active");
   document.body.classList.remove("overflow-hidden");
 };
 mapModalCloseBtn.addEventListener("click", modalMapCloseFun);

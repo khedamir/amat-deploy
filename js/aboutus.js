@@ -1,4 +1,3 @@
-const body = document.querySelector("body");
 const animatedMainPageSections = document.querySelectorAll(".animated-section");
 
 const favoriteSwiperOptionsMobile = {
@@ -62,15 +61,33 @@ function favoritesSwiperMode() {
 }
 
 window.addEventListener("resize", () => {
-  let favoritesSwiperBullets = favoritesSwiperMode();
-  // console.log(favoritesSwiperBullets[0])
+  favoritesSwiperMode();
   eventsSwiperMode();
+  changeHeaderStyle();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  let favoritesSwiperBullets = favoritesSwiperMode();
-  // favoritesSwiperMode();
+  favoritesSwiperMode();
   eventsSwiperMode();
+  setTimeout(() => {
+    ActiveBrandHistoryAnimate();
+  }, 600);
+
+  const textBlocks = document.querySelectorAll(".create__swiper-text-block");
+  const bullets = document.querySelectorAll(
+    ".create .swiper-pagination-bullet"
+  );
+
+  for (let i = 0; i < textBlocks.length; i++) {
+    favoritesSwiper.on("slideChange", () => {
+      if (bullets[i].classList.contains("swiper-pagination-bullet-active")) {
+        textBlocks.forEach((block) => {
+          block.classList.remove("is--active");
+        });
+        textBlocks[i].classList.add("is--active");
+      }
+    });
+  }
 });
 
 //swiper for articles and events
@@ -97,17 +114,17 @@ new Swiper(".articles .swiper", {
   slidesPerView: "auto",
   breakpoints: {
     320: {
-      spaceBetween: 80
+      spaceBetween: 80,
     },
     580: {
-      spaceBetween: 120
+      spaceBetween: 120,
     },
     720: {
-      spaceBetween: 130
+      spaceBetween: 130,
     },
     880: {
-      spaceBetween: 130
-    }
+      spaceBetween: 130,
+    },
   },
   loop: true,
   spaceBetween: 156,
@@ -130,7 +147,9 @@ window.addEventListener("scroll", () => {
   animatedMainPageSections.forEach((block) => {
     const blockPosition = block.getBoundingClientRect().top;
     if (blockPosition <= 0.4 * windowHeight) {
-      const transfromAnimatedItems = block.querySelectorAll(".transform-text__animated");
+      const transfromAnimatedItems = block.querySelectorAll(
+        ".transform-text__animated"
+      );
       const blockAnimatedItems = block.querySelectorAll(".block__animated");
 
       transfromAnimatedItems.forEach((item) => {
@@ -143,33 +162,19 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// header block
+const brandHistory = document.querySelector(".brand-history");
 
-//моя ерундашка
-const textBlocks = document.querySelectorAll('.create__swiper-text-block');
-favoritesSwiperBullets = favoritesSwiperMode();
-console.log(favoritesSwiperBullets);
-console.log(favoritesSwiperBullets.activeIndex);
-console.log(favoritesSwiperBullets.pagination);
-
-const bullets = document.querySelectorAll('.create .swiper-pagination-bullet');
-console.log(bullets);
-
-
-for (let i = 0; i < textBlocks.length; i++) {
-  favoritesSwiper.on('slideChange', () => {
-    if (bullets[i].classList.contains('swiper-pagination-bullet-active')) {
-      textBlocks.forEach(block => {
-        block.classList.remove('is--active');
-      })
-      textBlocks[i].classList.add('is--active');
-    }
-  })
+function ActiveBrandHistoryAnimate() {
+  brandHistory.classList.add("is--active");
+  changeHeaderStyle();
 }
 
-
-
-
-
-
-
-
+function changeHeaderStyle() {
+  const width = window.innerWidth;
+  if (width <= 1024) {
+    mainHeader.classList.add("white--v");
+  } else {
+    mainHeader.classList.remove("white--v");
+  }
+}
