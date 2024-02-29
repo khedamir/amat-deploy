@@ -113,6 +113,34 @@
         }
       }
 
+      &-one {
+        .phone-select {
+          .select-preview {
+            cursor: default;
+            display: flex;
+            gap: 3px;
+
+            &__value {
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              gap: 2px;
+
+              img {
+                width: 16px;
+                height: 16px;
+              }
+            }
+
+            input {
+              border: none;
+              outline: none;
+              width: 100%;
+            }
+          }
+        }
+      }
+
       &-two {
         .home-inputs {
           display: grid;
@@ -231,6 +259,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        cursor: pointer;
       }
 
       p {
@@ -356,7 +385,7 @@
     width: 100%;
   }
 
-  input {
+  & > input {
     width: 100%;
     padding: 13px 0;
     border: none;
@@ -418,8 +447,8 @@
   position: relative;
   margin-bottom: 40px;
   &-preview {
-    padding: 14px 0;
-    border-bottom: 1px solid #ccc;
+    padding: 13px 0;
+    border-bottom: 1px solid $textBlack60;
     cursor: pointer;
   }
 

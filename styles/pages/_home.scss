@@ -322,9 +322,16 @@
       gap: 80px;
       height: 900px;
 
-      & > img {
+      & > .video {
         width: calc(100% - 311px - 80px);
         height: 900px;
+
+        img {
+          width: 100%;
+          height: 100%;
+
+          object-fit: cover;
+        }
       }
 
       .swiper {
@@ -348,9 +355,8 @@
 
   .amat-gifts {
     .about-amat__media {
-      & > img {
-        max-width: 957px;
-        height: 577px;
+      & > iframe {
+        height: 680px;
         width: 100%;
         display: block;
         margin: 0 auto;
@@ -491,7 +497,7 @@
         flex-direction: column;
         gap: 40px;
 
-        & > img {
+        & > .video {
           width: 100%;
         }
 
@@ -515,7 +521,9 @@
     .amat-video,
     .amat-gifts {
       .about-amat__media {
-        & > img {
+        & > img,
+        & > iframe,
+        & > .video {
           max-width: none;
           height: 492px;
         }
@@ -750,6 +758,22 @@
       }
     }
 
+    .amat-video,
+    .amat-gifts {
+      .about-amat__media {
+        padding: 0 16px;
+        & > iframe {
+          height: 315px;
+        }
+      }
+
+      .about-amat__description {
+        .about-amat__link {
+          margin: 24px 16px 0;
+        }
+      }
+    }
+
     .amat-video {
       .about-amat__description {
         .sections-title {
@@ -759,7 +783,17 @@
       }
 
       .about-amat__media {
+        padding: 0;
+
+        & > .video {
+          padding: 0 16px;
+
+          img {
+            width: 100%;
+          }
+        }
         .swiper {
+          padding-left: 16px;
           &-slide {
             width: 182px;
             height: 295px;
@@ -776,22 +810,10 @@
       }
     }
 
-    .amat-video,
-    .amat-gifts {
-      .about-amat__media {
-        & > img {
-          height: 315px;
-        }
-      }
-
-      .about-amat__description {
-        .about-amat__link {
-          margin: 24px 16px 0;
-        }
-      }
-    }
-
     .amat-contacts {
+      .about-amat__media {
+        padding: 0 16px;
+      }
       .about-amat__header {
         padding-top: 0;
       }
@@ -808,33 +830,6 @@
   }
 
   @media screen and (max-width: 528px) {
-    // .home-video {
-    //   height: 95vh;
-    //   &__container {
-    //     width: 100%;
-    //     height: 70%;
-    //     padding-bottom: 84px;
-    //   }
-
-    //   &.is--active {
-    //     .home-video__container {
-    //       height: 70%;
-    //       transform: translateY(-30vh);
-    //       transition: all 1.5s ease;
-    //     }
-
-    //     .home-video__title {
-    //       transform: translateY(30vh);
-    //       color: $textBlack10;
-    //     }
-    //     .home-video__button {
-    //       transform: translateY(30vh);
-    //       background-color: $textBlack10;
-    //       color: $backWhite;
-    //     }
-    //   }
-    // }
-
     .sections-title {
       font-size: 20px;
     }

@@ -140,3 +140,4 @@ function AmatVideSwiperMode() {
 
   amatVideoSwiper = new Swiper(".amat-video .swiper", options);
 }
+

@@ -1186,6 +1186,8 @@
   .modal.modal-sdek .modal-content__wrapper {
     display: flex;
     height: 100%; }
+    .modal.modal-sdek .modal-content__wrapper > .sdek-description-search {
+      display: none; }
   .modal.modal-sdek .sdek-card {
     flex-grow: 1; }
   .modal.modal-sdek .sdek-description {
@@ -1226,6 +1228,8 @@
           padding: 0; }
         .modal.modal-sdek .sdek-description .points.selected .selected-point {
           display: block; }
+      .modal.modal-sdek .sdek-description .points .list-block__header img {
+        display: none; }
       .modal.modal-sdek .sdek-description .points-title {
         font-size: 16px;
         text-transform: uppercase;
@@ -1367,7 +1371,52 @@
     font-size: 16px; }
 
   .modal.modal-color .modal-color__product-container {
-    width: 47%; } }
+    width: 47%; }
+
+  .modal.modal-sdek .modal-content__wrapper {
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 78px; }
+    .modal.modal-sdek .modal-content__wrapper > .sdek-description-search {
+      display: flex; }
+  .modal.modal-sdek .sdek-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 78px;
+    margin: 0;
+    background-color: white;
+    transition: height 0.6s ease; }
+    .modal.modal-sdek .sdek-description-search {
+      display: none; }
+    .modal.modal-sdek .sdek-description .points {
+      max-height: 100%;
+      height: 100%; }
+      .modal.modal-sdek .sdek-description .points .list-block__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer; }
+        .modal.modal-sdek .sdek-description .points .list-block__header:hover {
+          opacity: 0.8; }
+        .modal.modal-sdek .sdek-description .points .list-block__header img {
+          transition: transform 0.4s ease;
+          display: block; }
+      .modal.modal-sdek .sdek-description .points-list {
+        display: none; }
+    .modal.modal-sdek .sdek-description .selected-point {
+      position: fixed;
+      bottom: 0;
+      height: auto; }
+      .modal.modal-sdek .sdek-description .selected-point .button {
+        margin-top: 40px; }
+    .modal.modal-sdek .sdek-description.is--active {
+      height: 100%; }
+      .modal.modal-sdek .sdek-description.is--active .points-list {
+        display: flex; }
+      .modal.modal-sdek .sdek-description.is--active .points .list-block__header img {
+        transform: rotate(180deg); } }
 .home-page .home-video,
 .page .home-video {
   margin-bottom: 64px;
@@ -1629,10 +1678,15 @@
   display: flex;
   gap: 80px;
   height: 900px; }
-  .home-page .amat-video .about-amat__media > img,
-  .page .amat-video .about-amat__media > img {
+  .home-page .amat-video .about-amat__media > .video,
+  .page .amat-video .about-amat__media > .video {
     width: calc(100% - 311px - 80px);
     height: 900px; }
+    .home-page .amat-video .about-amat__media > .video img,
+    .page .amat-video .about-amat__media > .video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
   .home-page .amat-video .about-amat__media .swiper,
   .page .amat-video .about-amat__media .swiper {
     width: 311px; }
@@ -1648,10 +1702,9 @@
   .page .amat-video .about-amat__description .about-amat__info {
     max-width: 500px;
     margin: 0; }
-.home-page .amat-gifts .about-amat__media > img,
-.page .amat-gifts .about-amat__media > img {
-  max-width: 957px;
-  height: 577px;
+.home-page .amat-gifts .about-amat__media > iframe,
+.page .amat-gifts .about-amat__media > iframe {
+  height: 680px;
   width: 100%;
   display: block;
   margin: 0 auto; }
@@ -1756,8 +1809,8 @@
     height: auto;
     flex-direction: column;
     gap: 40px; }
-    .home-page .amat-video .about-amat__media > img,
-    .page .amat-video .about-amat__media > img {
+    .home-page .amat-video .about-amat__media > .video,
+    .page .amat-video .about-amat__media > .video {
       width: 100%; }
     .home-page .amat-video .about-amat__media .swiper,
     .page .amat-video .about-amat__media .swiper {
@@ -1772,10 +1825,16 @@
     .home-page .amat-video .about-amat__description .about-amat__info,
     .page .amat-video .about-amat__description .about-amat__info {
       margin: 0 auto; }
-  .home-page .amat-video .about-amat__media > img,
+  .home-page .amat-video .about-amat__media > img, .home-page .amat-video .about-amat__media > iframe, .home-page .amat-video .about-amat__media > .video,
   .home-page .amat-gifts .about-amat__media > img,
+  .home-page .amat-gifts .about-amat__media > iframe,
+  .home-page .amat-gifts .about-amat__media > .video,
   .page .amat-video .about-amat__media > img,
-  .page .amat-gifts .about-amat__media > img {
+  .page .amat-video .about-amat__media > iframe,
+  .page .amat-video .about-amat__media > .video,
+  .page .amat-gifts .about-amat__media > img,
+  .page .amat-gifts .about-amat__media > iframe,
+  .page .amat-gifts .about-amat__media > .video {
     max-width: none;
     height: 492px; }
   .home-page .amat-video .about-amat__description .about-amat__link,
@@ -1944,30 +2003,50 @@
         margin: 0;
         padding: 0 16px;
         font-size: 16px; }
-  .home-page .amat-video .about-amat__description .sections-title,
-  .page .amat-video .about-amat__description .sections-title {
-    padding: 0 16px;
-    display: block; }
-  .home-page .amat-video .about-amat__media .swiper-slide,
-  .page .amat-video .about-amat__media .swiper-slide {
-    width: 182px;
-    height: 295px; }
-  .home-page .amat-video .about-amat__media .swiper .category__photo-container,
-  .page .amat-video .about-amat__media .swiper .category__photo-container {
-    padding: 40px 16px; }
-  .home-page .amat-video .about-amat__media .swiper .category__product-price,
-  .page .amat-video .about-amat__media .swiper .category__product-price {
-    font-size: 14px; }
-  .home-page .amat-video .about-amat__media > img,
-  .home-page .amat-gifts .about-amat__media > img,
-  .page .amat-video .about-amat__media > img,
-  .page .amat-gifts .about-amat__media > img {
-    height: 315px; }
+  .home-page .amat-video .about-amat__media,
+  .home-page .amat-gifts .about-amat__media,
+  .page .amat-video .about-amat__media,
+  .page .amat-gifts .about-amat__media {
+    padding: 0 16px; }
+    .home-page .amat-video .about-amat__media > iframe,
+    .home-page .amat-gifts .about-amat__media > iframe,
+    .page .amat-video .about-amat__media > iframe,
+    .page .amat-gifts .about-amat__media > iframe {
+      height: 315px; }
   .home-page .amat-video .about-amat__description .about-amat__link,
   .home-page .amat-gifts .about-amat__description .about-amat__link,
   .page .amat-video .about-amat__description .about-amat__link,
   .page .amat-gifts .about-amat__description .about-amat__link {
     margin: 24px 16px 0; }
+  .home-page .amat-video .about-amat__description .sections-title,
+  .page .amat-video .about-amat__description .sections-title {
+    padding: 0 16px;
+    display: block; }
+  .home-page .amat-video .about-amat__media,
+  .page .amat-video .about-amat__media {
+    padding: 0; }
+    .home-page .amat-video .about-amat__media > .video,
+    .page .amat-video .about-amat__media > .video {
+      padding: 0 16px; }
+      .home-page .amat-video .about-amat__media > .video img,
+      .page .amat-video .about-amat__media > .video img {
+        width: 100%; }
+    .home-page .amat-video .about-amat__media .swiper,
+    .page .amat-video .about-amat__media .swiper {
+      padding-left: 16px; }
+      .home-page .amat-video .about-amat__media .swiper-slide,
+      .page .amat-video .about-amat__media .swiper-slide {
+        width: 182px;
+        height: 295px; }
+      .home-page .amat-video .about-amat__media .swiper .category__photo-container,
+      .page .amat-video .about-amat__media .swiper .category__photo-container {
+        padding: 40px 16px; }
+      .home-page .amat-video .about-amat__media .swiper .category__product-price,
+      .page .amat-video .about-amat__media .swiper .category__product-price {
+        font-size: 14px; }
+  .home-page .amat-contacts .about-amat__media,
+  .page .amat-contacts .about-amat__media {
+    padding: 0 16px; }
   .home-page .amat-contacts .about-amat__header,
   .page .amat-contacts .about-amat__header {
     padding-top: 0; }
@@ -3303,6 +3382,22 @@ a {
             color: rgba(15, 14, 14, 0.5); }
             .checkout-page .checkout-forms .stage-header h3 span::first-letter {
               color: #0f0e0e; }
+      .checkout-page .checkout-forms .stage-one .phone-select .select-preview {
+        cursor: default;
+        display: flex;
+        gap: 3px; }
+        .checkout-page .checkout-forms .stage-one .phone-select .select-preview__value {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 2px; }
+          .checkout-page .checkout-forms .stage-one .phone-select .select-preview__value img {
+            width: 16px;
+            height: 16px; }
+        .checkout-page .checkout-forms .stage-one .phone-select .select-preview input {
+          border: none;
+          outline: none;
+          width: 100%; }
       .checkout-page .checkout-forms .stage-two .home-inputs {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -3374,7 +3469,8 @@ a {
       .checkout-page .checkout-products__header-cont {
         display: flex;
         align-items: center;
-        gap: 8px; }
+        gap: 8px;
+        cursor: pointer; }
       .checkout-page .checkout-products__header p {
         font-size: 14px; }
       .checkout-page .checkout-products__header span {
@@ -3455,7 +3551,7 @@ a {
     position: absolute;
     left: 0;
     width: 100%; }
-  .input-container input {
+  .input-container > input {
     width: 100%;
     padding: 13px 0;
     border: none;
@@ -3464,7 +3560,7 @@ a {
     font-size: 16px;
     margin: 12px 0 0;
     border-radius: 0; }
-    .input-container input + label {
+    .input-container > input + label {
       position: absolute;
       bottom: 13px;
       left: 0;
@@ -3472,7 +3568,7 @@ a {
       font-size: 16px;
       pointer-events: none;
       transition: bottom 0.3s, font-size 0.3s, color 0.3s; }
-    .input-container input:focus + label, .input-container input:not(:placeholder-shown) + label {
+    .input-container > input:focus + label, .input-container > input:not(:placeholder-shown) + label {
       bottom: 44px;
       font-size: 14px;
       color: rgba(15, 14, 14, 0.6); }
@@ -3501,8 +3597,8 @@ a {
   position: relative;
   margin-bottom: 40px; }
   .select-preview {
-    padding: 14px 0;
-    border-bottom: 1px solid #ccc;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(15, 14, 14, 0.6);
     cursor: pointer; }
   .select-items {
     position: absolute;

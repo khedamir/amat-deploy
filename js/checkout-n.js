@@ -9,6 +9,13 @@ const inputPatronymic = stages[0].querySelector("#patronymic-input");
 const inputEmail = stages[0].querySelector("#email-input");
 const inputPhone = stages[0].querySelector("#phone-input");
 
+const phoneSelector = document.querySelector(".phone-select");
+const phoneCode = document.querySelector(
+  ".phone-select .select-preview__value"
+);
+const phoneList = document.querySelector(".phone-select .select-items");
+const phoneItems = document.querySelectorAll(".phone-select .select-item");
+
 // STAGE TWO
 const inputCity = stages[1].querySelector("#city-input");
 const inputCityTips = inputCity.querySelector("datalist");
@@ -105,7 +112,25 @@ inputEmail.querySelector("input").addEventListener("input", (event) => {
   formData.userInfo.email = event.target.value;
 });
 inputPhone.querySelector("input").addEventListener("input", (event) => {
-  formData.userInfo.phone = event.target.value;
+  formData.userInfo.phone = `+7${event.target.value}`;
+});
+
+// phone
+phoneCode.addEventListener("click", () => {
+  phoneList.classList.toggle("is--active");
+});
+
+phoneItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    phoneItems.forEach((otherItem) => {
+      otherItem.classList.remove("is--active");
+    });
+    phoneCode.querySelector(".code").textContent = item.textContent;
+    const inputValue = inputPhone.querySelector("input").value;
+    formData.userInfo.phone = `${item.textContent}${inputValue}`;
+    item.classList.add("is--active");
+    phoneList.classList.remove("is--active");
+  });
 });
 
 // STAGE TWO
@@ -300,7 +325,7 @@ function checkEmail(email) {
 }
 
 function checkPhone(phone) {
-  const phoneRegex = /^(\d{3})(\d{3})(\d{2})(\d{2})$/;
+  const phoneRegex = /^(\+7|\+375)(\d{3})(\d{3})(\d{2})(\d{2})$/;
   const cleanedPhone = phone.replace(/[\s-]/g, "");
 
   if (cleanedPhone.length === 0) {
@@ -458,7 +483,6 @@ const modalMapCloseFun = () => {
 mapModalCloseBtn.addEventListener("click", modalMapCloseFun);
 
 //Открываем и закрываем список покупок
-
 const productsListBtn = document.querySelector(
   ".checkout-products__header-cont"
 );
@@ -469,15 +493,34 @@ productsListBtn.addEventListener("click", () => {
   productsBottom.classList.toggle("display-none");
 });
 
+// modal sdek
 const openSdekBtn = document.querySelector("#open-sdek-btn");
 const sdekModal = document.querySelector("#modal-checkout-sdek");
 
+const sdekDescriptionHeader = document.querySelector(".list-block__header");
+const sdekDescription = document.querySelector(".sdek-description");
+
+const selectedPointCloseButton = document.querySelector(
+  ".selected-point .modal-header__button"
+);
+const pointsBlock = document.querySelector(".points");
+
 openSdekBtn.addEventListener("click", () => {
   sdekModal.classList.add("is--active");
+  document.body.classList.add("overflow-hidden");
 });
 
 sdekModal
   .querySelector(".modal-header__button")
   .addEventListener("click", () => {
     sdekModal.classList.remove("is--active");
+    document.body.classList.remove("overflow-hidden");
   });
+
+sdekDescriptionHeader.addEventListener("click", () => {
+  sdekDescription.classList.toggle("is--active");
+});
+
+selectedPointCloseButton.addEventListener("click", () => {
+  pointsBlock.classList.remove("selected");
+});

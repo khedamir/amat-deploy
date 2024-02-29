@@ -16,7 +16,7 @@
     <title>AMAT</title>
     <link
       type="image/x-icon"
-      href="images/png/logo-white.png"
+      href="images/svg/logo-black.svg"
       rel="shortcut icon"
     />
   </head>
@@ -149,7 +149,9 @@
                 <div class="mobile-nav__item--submenu">
                   <ul class="collections-list">
                     <li class="collections-list__item">
-                      <a href="category.html#theme-scarves">Тематические платки</a>
+                      <a href="category.html#theme-scarves"
+                        >Тематические платки</a
+                      >
                     </li>
                     <li class="collections-list__item">
                       <a href="category.html#base-scarves">Базовые платки</a>
@@ -162,7 +164,8 @@
                       <a href="category.html#twills">Твилли</a>
                     </li>
                     <li class="collections-list__item">
-                      <a href="category.html#scarfs">Шарфы</a></li>
+                      <a href="category.html#scarfs">Шарфы</a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -447,9 +450,7 @@
                   src="images/png/title3.png"
                   alt=""
                 />
-                <h3 class="sections-title transform-text__animated">
-                  Шали
-                </h3>
+                <h3 class="sections-title transform-text__animated">Шали</h3>
               </a>
             </div>
             <div class="collections-list__item animated-section">
@@ -471,9 +472,7 @@
                   src="images/png/title5.png"
                   alt=""
                 />
-                <h3 class="sections-title transform-text__animated">
-                  Твилли
-                </h3>
+                <h3 class="sections-title transform-text__animated">Твилли</h3>
               </a>
             </div>
             <div class="collections-list__item animated-section">
@@ -483,9 +482,7 @@
                   src="images/png/title1.png"
                   alt=""
                 />
-                <h3 class="sections-title transform-text__animated">
-                  Шарфы
-                </h3>
+                <h3 class="sections-title transform-text__animated">Шарфы</h3>
               </a>
             </div>
           </div>
@@ -520,7 +517,7 @@
           </p>
         </header>
         <div class="about-amat__media">
-          <img src="images/png/style.png" alt="" />
+          <div class="video"><img src="images/png/style.png" alt="" /></div>
           <div class="swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -811,7 +808,13 @@
           </h3>
         </header>
         <div class="about-amat__media">
-          <img src="images/png/gifts.png" alt="" />
+          <iframe
+            src="https://www.youtube.com/embed/zhX-utrMtBE?autoplay=1&loop=1&vq=hd1080&controls=0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
         <div class="about-amat__description animated-section">
           <h3 class="sections-title transform-text__animated">
@@ -880,8 +883,8 @@
       <div class="modal-content">
         <div class="modal-content__wrapper">
           <form class="modal-search__container">
-            <input type="search" class="modal-search__input" value="">
-            <input type="text" class="modal-search__reset" value="Очистить">
+            <input type="search" class="modal-search__input" value="" />
+            <input type="text" class="modal-search__reset" value="Очистить" />
             <div class="modal-search__button-wrap modal-bottom">
               <div class="modal-search__button button button--white">Найти</div>
             </div>
@@ -892,7 +895,10 @@
             <p class="last-results__title">Вы искали:</p>
             <div class="last-results__item">
               <p>платок</p>
-              <img src="images/svg/delete-last-item.svg" alt="Удалить элемент">
+              <img
+                src="images/svg/delete-last-item.svg"
+                alt="Удалить элемент"
+              />
               <div class="last-result__delete">
                 <span></span>
                 <span></span>
@@ -900,7 +906,10 @@
             </div>
             <div class="last-results__item">
               <p>шаль</p>
-              <img src="images/svg/delete-last-item.svg" alt="Удалить элемент">
+              <img
+                src="images/svg/delete-last-item.svg"
+                alt="Удалить элемент"
+              />
               <div class="last-result__delete">
                 <span></span>
                 <span></span>
@@ -910,8 +919,12 @@
 
           <!--Блок, когда по запросу не найдено результатов-->
           <div class="modal-search__not-found">
-            <p class="modal-search__not-found-text">Мы ничего не нашли по запросу "<span>владыа</span>"</p>
-            <p class="modal-search__not-found-text">Попробуйте изменить запрос.</p>
+            <p class="modal-search__not-found-text">
+              Мы ничего не нашли по запросу "<span>владыа</span>"
+            </p>
+            <p class="modal-search__not-found-text">
+              Попробуйте изменить запрос.
+            </p>
             <h5 class="modal__heading">Вам может быть интересно</h5>
           </div>
 
@@ -1164,12 +1177,13 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
       <div class="modal-bottom">
-        <a href="viewall.html" class="modal-bottom__button button button--white">Показать все </a>
+        <a href="viewall.html" class="modal-bottom__button button button--white"
+          >Показать все
+        </a>
       </div>
     </div>
 
@@ -1545,13 +1559,13 @@
         <a
           href="category.html"
           class="modal-bottom__button button button--white"
-        >Продолжить покупки</a
+          >Продолжить покупки</a
         >
         <!--        Отображается, когда в корзине есть товары-->
         <a
           href="checkout.html"
           class="modal-bottom__button button button--black"
-        >Перейти к оформлению</a
+          >Перейти к оформлению</a
         >
       </div>
     </div>
@@ -1569,10 +1583,9 @@
       <div class="modal-content">
         <div class="modal-content__wrapper">
           <div class="modal__text">
-            Чеченский язык один из самых древнейших, красивейших
-            и богатейших языков в мире. Скудным его может считать
-            только тот, кто по-настоящему не познал всю его глубину,
-            изобилие и разнообразие.
+            Чеченский язык один из самых древнейших, красивейших и богатейших
+            языков в мире. Скудным его может считать только тот, кто
+            по-настоящему не познал всю его глубину, изобилие и разнообразие.
           </div>
         </div>
       </div>
@@ -1591,10 +1604,9 @@
       <div class="modal-content">
         <div class="modal-content__wrapper">
           <div class="modal__text">
-            Чеченский язык один из самых древнейших, красивейших
-            и богатейших языков в мире. Скудным его может считать
-            только тот, кто по-настоящему не познал всю его глубину,
-            изобилие и разнообразие.
+            Чеченский язык один из самых древнейших, красивейших и богатейших
+            языков в мире. Скудным его может считать только тот, кто
+            по-настоящему не познал всю его глубину, изобилие и разнообразие.
           </div>
         </div>
       </div>
@@ -1612,27 +1624,19 @@
 
       <div class="modal-content">
         <div class="modal-content__wrapper">
-          <p class="modal__question">
-            Зачем мне приобретать ваш товар?
-          </p>
+          <p class="modal__question">Зачем мне приобретать ваш товар?</p>
           <p class="modal__answer">
             У нас уникальные изделия, натуральный состав, ручная работа.
           </p>
-          <p class="modal__question">
-            Зачем мне приобретать ваш товар?
-          </p>
+          <p class="modal__question">Зачем мне приобретать ваш товар?</p>
           <p class="modal__answer">
             У нас уникальные изделия, натуральный состав, ручная работа.
           </p>
-          <p class="modal__question">
-            Зачем мне приобретать ваш товар?
-          </p>
+          <p class="modal__question">Зачем мне приобретать ваш товар?</p>
           <p class="modal__answer">
             У нас уникальные изделия, натуральный состав, ручная работа.
           </p>
-          <p class="modal__question">
-            Зачем мне приобретать ваш товар?
-          </p>
+          <p class="modal__question">Зачем мне приобретать ваш товар?</p>
           <p class="modal__answer">
             У нас уникальные изделия, натуральный состав, ручная работа.
           </p>
@@ -1652,12 +1656,17 @@
 
       <div class="modal-content">
         <div class="modal-content__wrapper">
-          Спасибо, что Вы Выбрали нас!
-          Издавна натуральный шелк являлся одной из самых дорогих и элитных материй.
-          Ткань из шелкового волокна очень мягкая и приятная на ощупь и при этом гипоаллергенна. Несмотря на прочность шелка, уход за ним должен быть очень деликатным, так же это касается и обращения с шелковыми изделиями, так как шелк боится зацепок и затяжек.
-          Чтобы сохранить изделие в превосходном состоянии, храните его в развязанном виде и избегайте соприкосновения с украшениями и аксессуарами, которые могут оставить зацепки. Берегите изделие от дождя, избегайте контакта с агрессивными
-          веществами и желательно осуществляйте уход за изделием в специализированных химчистках.
-          С уважением, “AMAТ”
+          Спасибо, что Вы Выбрали нас! Издавна натуральный шелк являлся одной из
+          самых дорогих и элитных материй. Ткань из шелкового волокна очень
+          мягкая и приятная на ощупь и при этом гипоаллергенна. Несмотря на
+          прочность шелка, уход за ним должен быть очень деликатным, так же это
+          касается и обращения с шелковыми изделиями, так как шелк боится
+          зацепок и затяжек. Чтобы сохранить изделие в превосходном состоянии,
+          храните его в развязанном виде и избегайте соприкосновения с
+          украшениями и аксессуарами, которые могут оставить зацепки. Берегите
+          изделие от дождя, избегайте контакта с агрессивными веществами и
+          желательно осуществляйте уход за изделием в специализированных
+          химчистках. С уважением, “AMAТ”
         </div>
       </div>
     </div>
@@ -1677,10 +1686,10 @@
           <div class="modal-contacts-flex">
             <div class="messengers">
               <a target="_blank" href="https://+7%20(988)%20908-87-87/"
-              >WhatsApp</a
+                >WhatsApp</a
               >
               <a target="_blank" href="https://t.me/+k-noRbhXTWZlN2Ni"
-              >Telegram</a
+                >Telegram</a
               >
               <a target="_blank" href="https://vk.com/amat_scarves">VK</a>
             </div>
@@ -1688,13 +1697,12 @@
               target="_blank"
               href="mailto:amat.textile@gmail.com"
               class="email"
-            >amat.textile@gmail.com
+              >amat.textile@gmail.com
             </a>
             <a href="tel:79889088787" class="footer-contacts__phone">
               +7 988 908-87-87</a
             >
           </div>
-
         </div>
       </div>
     </div>
@@ -1728,7 +1736,6 @@
         </p>
       </div>
     </div>
-
 
     <div class="backdrop"></div>
 
