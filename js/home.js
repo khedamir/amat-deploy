@@ -79,7 +79,9 @@ window.addEventListener("resize", () => {
 document.addEventListener("DOMContentLoaded", () => {
   favoritesSwiperMode();
   AmatVideSwiperMode();
+
   setTimeout(() => {
+    window.scrollTo(0, 0);
     MainPageHeaderAnimationOn();
   }, 600);
 });
@@ -140,4 +142,3 @@ function AmatVideSwiperMode() {
 
   amatVideoSwiper = new Swiper(".amat-video .swiper", options);
 }
-

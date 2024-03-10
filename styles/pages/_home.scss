@@ -162,7 +162,7 @@
       letter-spacing: -1.6px;
       margin: 40px 0 24px 0;
       color: $textaccent;
-      max-width: 500px;
+      max-width: 550px;
     }
 
     &__info {
@@ -269,6 +269,12 @@
             background: $graphicAccent;
           }
         }
+      }
+    }
+
+    .collections-ticker {
+      .ticker__item {
+        animation: ticker 12s linear infinite;
       }
     }
 

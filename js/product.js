@@ -144,6 +144,7 @@ const previewPhotoWrapper = productPhotoPreview.querySelector(
 productPhotoList.addEventListener("click", () => {
   productPhotoPreview.classList.add("is--active");
   document.body.classList.add("overflow-hidden");
+  showImage(0);
 });
 
 // close photo preview
@@ -180,6 +181,8 @@ document
     showImage(currentIndex);
   });
 
+let previewPhotoZoomer;
+
 // показать изображение
 function showImage(index) {
   previewPhotoList.forEach((item, i) => {
@@ -189,18 +192,156 @@ function showImage(index) {
       const img = item.querySelector("img");
 
       previewPhotoWrapper.querySelector("img").src = img.src;
+
+      removeZoomerEvents();
+      previewPhotoWrapper.classList.remove("zoomed");
+      previewPhotoZoomer = createZoomer();
+      addZoomerEvents();
     }
   });
 }
 
 // photo zoom
 const previewImage = previewPhotoWrapper.querySelector("img");
+let isDragging = false;
 
-// let isZoomed = false;
+function createZoomer() {
+  let element,
+    xStart,
+    yStart,
+    currentX = 0,
+    currentY = 0;
 
-previewPhotoWrapper.addEventListener("click", () => {
-  previewPhotoWrapper.classList.toggle("zoomed");
-});
+  return {
+    zoom: function () {
+      previewPhotoWrapper.classList.toggle("zoomed");
+      const previewImage = previewPhotoWrapper.querySelector("img");
+      previewImage.style.left = 0 + "px";
+      previewImage.style.top = 0 + "px";
+      currentX = 0;
+      currentY = 0;
+    },
+
+    start_drag: function () {
+      element = previewPhotoWrapper.querySelector("img");
+
+      if (window.event.type === "touchstart") {
+        xStart = window.event.touches[0].clientX;
+        yStart = window.event.touches[0].clientY;
+      } else {
+        xStart = window.event.clientX;
+        yStart = window.event.clientY;
+      }
+
+      console.log(window.event.type);
+    },
+
+    stop_drag: function () {
+      setTimeout(function () {
+        isDragging = false;
+        element = null;
+      }, 0);
+    },
+
+    while_drag: function () {
+      if (element) {
+        isDragging = true;
+        // текущее положение курсора
+        let xCursor;
+        let yCursor;
+
+        if (window.event.type === "touchmove") {
+          xCursor = window.event.touches[0].clientX;
+          yCursor = window.event.touches[0].clientY;
+        } else {
+          xCursor = window.event.clientX;
+          yCursor = window.event.clientY;
+        }
+
+        newX = xCursor - xStart;
+        newY = yCursor - yStart;
+
+        // new left and top
+        currentX = currentX + newX;
+        currentY = currentY + newY;
+
+        // max left and top
+        const rect = element.getBoundingClientRect();
+        const containerRect = element.parentNode.getBoundingClientRect();
+
+        let maxLeft = (rect.width - containerRect.width) / 2;
+        if (maxLeft < 0) maxLeft = 0;
+        let minLeft = -maxLeft;
+
+        if (currentX > maxLeft) currentX = maxLeft;
+        if (currentX < minLeft) currentX = minLeft;
+
+        let maxTop = (rect.height - containerRect.height) / 2;
+        if (maxTop < 0) maxTop = 0;
+        let minTop = -maxTop;
+
+        if (currentY > maxTop) currentY = maxTop;
+        if (currentY < minTop) currentY = minTop;
+
+        // update start position
+        xStart = xCursor;
+        yStart = yCursor;
+
+        // update left and top for element
+        element.style.left = currentX + "px";
+        element.style.top = currentY + "px";
+      }
+    },
+  };
+}
+
+function previewPhotoClick() {
+  if (!isDragging) {
+    previewPhotoZoomer.zoom();
+  }
+}
+
+function previewPhotoDragStart() {
+  previewPhotoZoomer.start_drag();
+}
+
+function previewPhotoDragStop() {
+  previewPhotoZoomer.stop_drag();
+}
+
+function previewPhotoWhileDrag() {
+  previewPhotoZoomer.while_drag();
+}
+
+function removeZoomerEvents() {
+  const img = previewPhotoWrapper.querySelector("img");
+
+  img.removeEventListener("click", previewPhotoClick);
+  img.removeEventListener("mousedown", previewPhotoDragStart);
+  img.removeEventListener("mousemove", previewPhotoWhileDrag);
+  img.removeEventListener("mouseup", previewPhotoDragStop);
+  img.removeEventListener("mouseout", previewPhotoDragStop);
+
+  img.removeEventListener("touchstart", previewPhotoDragStart);
+  img.removeEventListener("touchmove", previewPhotoWhileDrag);
+  img.removeEventListener("touchend", previewPhotoDragStop);
+  img.removeEventListener("touchcancel", previewPhotoDragStop);
+}
+
+function addZoomerEvents() {
+  const img = previewPhotoWrapper.querySelector("img");
+
+  img.addEventListener("click", previewPhotoClick);
+  img.addEventListener("mousedown", previewPhotoDragStart);
+  img.addEventListener("mousemove", previewPhotoWhileDrag);
+  img.addEventListener("mouseup", previewPhotoDragStop);
+  img.addEventListener("mouseout", previewPhotoDragStop);
+
+  img.addEventListener("touchstart", previewPhotoDragStart);
+  img.addEventListener("touchmove", previewPhotoWhileDrag);
+  img.addEventListener("touchend", previewPhotoDragStop);
+  img.addEventListener("touchcancel", previewPhotoDragStop);
+}
 
 // My crazy code for modals
 // Три переменные, по клику на которые будут открываться три окошка - выбор цвета, ткани и размера

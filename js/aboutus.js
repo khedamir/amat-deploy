@@ -34,30 +34,23 @@ const favoriteSwiperOptionsDesktop = {
 };
 
 let favoritesSwiper;
-let perSwiperEffect;
 
 function favoritesSwiperMode() {
   let screenWidth = window.innerWidth;
-  let swiperEffect = screenWidth < 768 ? "coverflow" : "slide";
   let options =
-    screenWidth < 768
+    screenWidth < 800
       ? favoriteSwiperOptionsMobile
       : favoriteSwiperOptionsDesktop;
 
-  if (!perSwiperEffect && !favoritesSwiper) {
-    perSwiperEffect = swiperEffect;
+  if (!favoritesSwiper) {
     favoritesSwiper = new Swiper(".create .swiper", options);
-    return favoritesSwiper;
+    return;
   }
 
-  if (perSwiperEffect !== swiperEffect) {
-    perSwiperEffect = swiperEffect;
-    if (favoritesSwiper && favoritesSwiper.destroy) {
-      favoritesSwiper.destroy(true, true);
-    }
-    favoritesSwiper = new Swiper(".create .swiper", options);
+  if (favoritesSwiper && favoritesSwiper.destroy) {
+    favoritesSwiper.destroy(true, true);
   }
-  return favoritesSwiper.pagination;
+  favoritesSwiper = new Swiper(".create .swiper", options);
 }
 
 window.addEventListener("resize", () => {
@@ -98,14 +91,15 @@ function eventsSwiperMode() {
   if (screenWidth > 800) {
     if (!eventsSwiper) {
       eventsSwiper = new Swiper(".events .swiper", {
-        slidesPerView: 2.5,
-        loop: true,
+        slidesPerView: "auto",
+        loop: false,
         spaceBetween: 30,
       });
     }
   } else {
     if (eventsSwiper && eventsSwiper.destroy) {
       eventsSwiper.destroy(true, true);
+      eventsSwiper = null;
     }
   }
 }
@@ -120,21 +114,21 @@ new Swiper(".articles .swiper", {
       spaceBetween: 120,
     },
     720: {
-      spaceBetween: 130,
+      spaceBetween: 100,
     },
     880: {
-      spaceBetween: 130,
+      spaceBetween: 100,
     },
   },
-  loop: true,
   spaceBetween: 156,
   effect: "coverflow",
   centeredSlides: true,
+  initialSlide: 1, //центральный слайд активный
   coverflowEffect: {
     rotate: 0,
     stretch: 0,
     depth: 100,
-    modifier: 3.5,
+    modifier: 1.2,
     slideShadows: false,
   },
   pagination: {

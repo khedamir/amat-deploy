@@ -22,3 +22,8 @@ const productSwiper = new Swiper(".category-product__swiper.swiper", {
   },
 });
 
+backdrop.addEventListener("click", () => {
+  modalFilter.classList.remove("is--active");
+  backdrop.classList.remove("is--active");
+  document.body.classList.remove("overflow-hidden");
+});
