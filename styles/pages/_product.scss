@@ -9,7 +9,7 @@
       &__list {
         display: flex;
         flex-direction: column;
-        cursor: url("/images/svg/slider-zoom-plus.svg"), auto;
+        cursor: url("../images/svg/slider-zoom-plus.svg"), auto;
       }
 
       &__item {
@@ -344,7 +344,7 @@
           width: auto;
           height: 100%;
           transition: transform 0.3s ease-in-out;
-          cursor: url("/images/svg/slider-zoom-plus.svg"), auto;
+          cursor: url("../images/svg/slider-zoom-plus.svg"), auto;
         }
 
         &.zoomed {
@@ -353,7 +353,7 @@
             position: relative;
             top: 0;
             left: 0;
-            cursor: url("/images/svg/slider-zoom-minus.svg"), auto;
+            cursor: url("../images/svg/slider-zoom-minus.svg"), auto;
           }
         }
       }
