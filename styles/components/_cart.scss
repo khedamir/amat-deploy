@@ -59,6 +59,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
 
     &-delete {
@@ -69,6 +74,10 @@
       width: 32px;
       height: 32px;
       padding: 6px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.6;
+      }
       span {
         display: block;
         position: absolute;
@@ -171,6 +180,10 @@
     justify-content: center;
     height: 20px;
     background: $blackGray;
+    cursor: pointer;
+    &:active {
+      opacity: 0.4;
+    }
 
     &--minus {
       -webkit-border-bottom-left-radius: 4px;
@@ -184,6 +197,7 @@
   }
 
   &__input {
+    display: inline-flex;
     input {
       width: 24px;
       height: 20px;
@@ -213,4 +227,3 @@
     }
   }
 }
-
